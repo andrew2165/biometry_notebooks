@@ -1,0 +1,98 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Section 3 - Help
+```{r Section3}
+# Question 1
+help(sd)
+
+# Question 2 - Commnented out to save space
+# example(cor)
+
+# Question 3
+### One way is to simply use
+help(hist)
+### Another way is to use
+?hist
+
+# Question 4
+help(kruskal.test) # gives the usage of the function
+
+# Question 5
+hist(rnorm(1000),main="Stupid example",xlab="Random pulls from a Gaussian Dist")
+points(x=c(-1.1,-1.1),y=c(0,1000),type="l",col="red")
+```
+
+
+# Section 4 - Operations on Objects
+## Section 4.1
+```{r Section4.1}
+# Question 1
+a = 1
+b =2 
+pet1 = "dog"
+pet2 = "cat"
+
+# Question 2
+vec1 = c(2.4, 2.3, 2.5, 3.1, 4.0)
+
+# Question 3
+vec2 = c(-4, 0.3, 1.5, 5.2, 24.0)
+
+# Question 4
+df = data.frame(vec1, vec2)
+```
+
+## Section 4.2
+```{r Section4.2}
+# Question 1
+vec2 / vec1
+
+# Question 2
+sum(vec1**2)
+
+# Question 3
+(sum((mean(vec1) - vec1)**2)) / (length(vec1) - 1)
+
+# Question 4
+var(vec1)
+help(var) # Calculates Correlation, Variance, and Covariance 
+```
+
+
+# Section 5 - Dataframes
+```{r Section5}
+library(MASS)
+rnA = rownames(Animals)
+rnM = rownames(mammals)
+
+all.animals = rbind(Animals[!rnA %in% rnM,], mammals)
+plot(all.animals)
+plot(log(all.animals))
+```
+
+## Section 5.1 - Indexing
+```{r Section5.1}
+b = read.csv('./hybridindex.csv')
+# I had to ax the headers of the XLS file to make it work in csv
+
+
+```
+
+
+# Section 6 - Plotting
+```{r}
+# Question 1
+library(lattice)
+obj_plot = xyplot(Sepal.Length~Petal.Length|Species, data=iris)
+print(obj_plot)
+
+# Question 2
+library(maps)
+library(mapdata)
+map("worldHires", region=c("USA"))
+```
+
